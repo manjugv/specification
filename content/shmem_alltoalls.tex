@@ -81,12 +81,12 @@ CALL SHMEM_ALLTOALLS64(dest, source, dst, sst, nelems, PE_start, logPE_stride, P
     \VAR{pSync} work array must be passed to all \acp{PE} in the \activeset.
     
     Before any \ac{PE} calls to a \FUNC{shmem\_alltoalls} routine, the following
-    conditions must exist (synchronization via a barrier or some other method is
-    often needed to ensure this): The \VAR{pSync} array on all \acp{PE} in the
+    conditions must exist: The \VAR{pSync} array on all \acp{PE} in the
     \activeset{} is not still in use from a prior call to a
     \FUNC{shmem\_alltoalls} routine.  The \VAR{dest} data object on
     all \acp{PE} in the \activeset{} is ready to accept the
-    \FUNC{shmem\_alltoalls} data.
+    \FUNC{shmem\_alltoalls} data. Synchronization via a barrier or similar method is
+    typical to ensure these conditions.
     
     Upon return from a \FUNC{shmem\_alltoalls} routine, the following is true for
     the local PE: Its \VAR{dest} symmetric data object is completely updated and
