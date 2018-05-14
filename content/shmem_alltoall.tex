@@ -76,8 +76,16 @@ CALL @\FuncDecl{SHMEM\_ALLTOALL64}@(dest, source, nelems, PE_start, logPE_stride
     Before any \ac{PE} calls a \FUNC{shmem\_alltoall} routine,
     the following conditions must be ensured:
     \begin{itemize}
-    \item The \VAR{pSync} array on all \acp{PE} in the active set is not
+    
+    \item \oldtext{The \VAR{pSync} array on all \acp{PE} in the active set is not
       still in use from a prior call to a \FUNC{shmem\_alltoall} routine.
+    }
+    \item \newtext{The \VAR{pSync} array on all \acp{PE} in the active set should
+    not be in use from a prior call to a \FUNC{shmem\_alltoall} routine
+    (if the pSync array specific to \FUNC{shmem\_alltoall} is used)
+    or any of the collective routines (if the same pSync array is
+    used for all collective operations).
+    }
     \item The \VAR{dest} data object on all \acp{PE} in the active set is
       ready to accept the \FUNC{shmem\_alltoall} data.
     \end{itemize}
