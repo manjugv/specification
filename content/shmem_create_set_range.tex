@@ -1,0 +1,26 @@
+\apisummary{
+    Creates a new set that includes all \acp{PE} within the range provided as input.
+}
+
+\begin{apidefinition}
+
+\begin{Csynopsis}
+int @\FuncDecl{shmem\_create\_set\_range}@(shmem\_set\_t *parent\_set, int low\_index, int high\_index, shmem\_set\_t **new\_set);
+\end{Csynopsis}
+
+\begin{apiarguments}
+     \apiargument{IN}{parent\_set}{A valid set. A valid set is either a pre-defined set or one created by application of one or more set creation operations.}
+       \apiargument{IN}{low\_pe}{\ac{PE} with the lowest index in the parent\_set that is intended to be part of new set }
+        \apiargument{IN}{low\_pe}{\ac{PE} with the highest index in the parent\_set that is intended to be part of new set}
+     \apiargument{OUT}{new\_set}{An opaque handle representing the new set.}
+\end{apiarguments}
+
+\apidescription{
+   The shmem\_create\_set\_range creates a new \ac{PE} set that includes all \acp{PE} in the parent\_set, whose index is in the range of low\_pe and high\_pe, inclusively. It is a local operation and can be called by any \ac{PE}. This routine will return an opaque handle to the new\_set, which contains a subset of the \acp{PE} in the parent\_set specified by the range. If the calling \ac{PE} is a part of new\_set, its index in the new\_set is a valid non-negative integer, otherwise the \ac{PE} has a negative index. The indices of the \acp{PE} in the new\_set are ordered by their indices in SHMEM\_SET\_WORLD. }
+
+\apireturnvalues{
+shmem\_create\_set\_range  returns 0 upon success; otherwise, it returns a non-zero value.}
+
+\apinotes{ None.}
+
+\end{apidefinition}

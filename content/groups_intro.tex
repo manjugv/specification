@@ -1,0 +1,6 @@
+A Group is a set of \acp{PE} created by the creation operations defined in the section \ref{}. A  group is represented by an opaque object and cannot be passed from one \ac{PE} to other. A group can be used for collective operations by the OpenSHMEM programmer without providing symmetric memory objects such as pSync and pWork. 
+
+A group creation and destruction is a collective operation. All \acp{PE} that are part of the set must call the routine. 
+Since group creation and destruction operations are collectives, the ordering requirements are similar to other collective operations described in the collectives section. It is the programmer?s responsibility to ensure the correct ordering of group calls.
+
+The group operations are blocking. In a multithreaded OpenSHMEM program, only the calling thread is blocked, allowing other threads to continue execution. 
