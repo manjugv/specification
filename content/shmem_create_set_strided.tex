@@ -1,5 +1,5 @@
 \apisummary{
-    Creates a new set based on the input set and the triplet, which includes start index, size, and stride.
+    Creates a new set based on the input set and the triplet, which includes start \ac{PE} or index, size, and stride.
 }
 
 \begin{apidefinition}
@@ -17,12 +17,13 @@ int @\FuncDecl{shmem\_create\_set\_strided}@(shmem\_set\_t *parent\_set, int Ind
 \end{apiarguments}
 
 \apidescription{
-    The shmem\_create\_set\_strided creates a new PE set from the parent\_set based on the triplet (PE\_Start, PE\_stride and PE\_size) supplied to the routine. It is a local operation and can be called by any PE. Upon return from a call to the routine, a handle to the new\_set is allocated to all calling PEs. If the PE is a part of the new\_set, its index is a non-negative integer, otherwise it is negative. The new\_set contains the PE subset specified by the triplet. The indices of the PEs in the new\_set are ordered by their indices in SHMEM\_SET\_WORLD.
+    The \FUNC{shmem\_create\_set\_strided} creates a new PE set from the \VAR{parent\_set} based on the triplet (\VAR{PE\_Start}, \VAR{PE\_stride}, and \VAR{PE\_size}) supplied to the routine. This is a local operation and can be called by any PE. Upon return from a call to the routine, a handle to the \VAR{new\_set} is allocated to all calling PEs. If the PE is a part of the \VAR{new\_set}, its index is a non-negative integer, otherwise it is negative. The \VAR{new\_set} contains the PE subset specified by the triplet. The indices of the \acp{PE} in the \VAR{new\_set} are ordered by their indices in \CONST{SHMEM\_SET\_WORLD}.
 }
 
 \apireturnvalues{
-shmem\_create\_set\_strided  returns 0 upon success; otherwise, it returns a non-zero value.}
+\FUNC{shmem\_create\_set\_strided}  returns 0 upon success; otherwise, it returns a non-zero value.
+}
 
-\apinotes{ The indices and \ac{PE} numbers are equivalent if the parent\_set is SHMEM\_SET\_WORLD.}
+\apinotes{ The indices and \ac{PE} numbers are equivalent if the \VAR{parent\_set} is \CONST{SHMEM\_SET\_WORLD}.}
 
 \end{apidefinition}
