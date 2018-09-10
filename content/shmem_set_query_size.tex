@@ -1,0 +1,24 @@
+\apisummary{
+    Returns the number of \ac{PE} in the set.
+}
+
+\begin{apidefinition}
+\begin{Csynopsis}
+int @\FuncDecl{shmem\_set\_query\_size}@(shmem_set_t *set, int *size)
+\end{Csynopsis}
+
+\begin{apiarguments}
+     \apiargument{IN}{set}{A valid set. A valid set is either a pre-defined set or created by one the set creation operation.}
+     \apiargument{OUT}{size}{Number of \acp{PE} in the set}
+\end{apiarguments}
+
+\apidescription{
+The shmem\_set\_query\_size routine returns the number of \ac{PE} in the set. This will always be a value between 1 and the total number of  \ac{PE}. For the set SHMEM\_SET\_WORLD, the routine will return the same value as shmem\_n\_pes. For the set SHMEM\_SET\_EMPTY, the routine will return 0.  }
+
+\apireturnvalues{
+shmem\_set\_query\_size returns 0 upon success; otherwise, it returns a non-zero value.
+}
+
+\apinotes{ None.}
+
+\end{apidefinition}

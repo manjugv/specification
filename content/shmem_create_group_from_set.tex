@@ -1,0 +1,26 @@
+\apisummary{
+    Creates a group based on the input set.
+}
+
+\begin{apidefinition}
+
+\begin{Csynopsis}
+int @\FuncDecl{shmem\_create\_group\_from\_set}@(shmem_set_t *set, shmem_group_t **new_group)
+\end{Csynopsis}
+
+\begin{apiarguments}
+     \apiargument{IN}{set}{A valid set of PEs. A valid set is either a predefined set or created by one of multiple application of creation operations.}
+      \apiargument{OUT}{new\_group}{A new group representing the set.}
+\end{apiarguments}
+
+\apidescription{
+The shmem\_create\_group\_from\_set routine is a collective routine over all members of the set. This routine must be called by all \ac{PE} contained in the set. All calling \ac{PE} must provide the set, which include same \ac{PE}. It should not be called by \ac{PE} not included in the set. This routine will return a new\_group containing the \ac{PE} in the set and necessary resources allocated for collective routines. 
+}
+
+\apireturnvalues{
+shmem\_create\_group\_from\_set  returns 0 upon success; otherwise, it returns a non-zero value.
+}
+
+\apinotes{None.}
+
+\end{apidefinition}

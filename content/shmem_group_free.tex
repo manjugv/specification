@@ -1,0 +1,25 @@
+\apisummary{
+    Frees are resources associated with the group and destroys the group.
+}
+
+\begin{apidefinition}
+
+\begin{Csynopsis}
+int @\FuncDecl{shmem\_group\_free}@(shmem_group_t free_group)
+\end{Csynopsis}
+
+\begin{apiarguments}
+     \apiargument{IN}{free\_group}{A valid group of \ac{PE}. A valid group is either a predefined group  or created by of creation operations.}
+\end{apiarguments}
+
+\apidescription{
+The shmem\_group\_free routine invalidates the existing group handle and releases all resources associated with the group. This is a collective operation, in which every member of the group being destroyed needs to participate. On return, the group handle is set to SHMEM\_GROUP\_NULL, after which it can no longer be used for collective operations.
+}
+
+\apireturnvalues{
+shmem\_group\_free  returns 0 upon success; otherwise, it returns a non-zero value
+}
+
+\apinotes{None.}
+
+\end{apidefinition}

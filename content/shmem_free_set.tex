@@ -1,0 +1,23 @@
+\apisummary{
+    Invalides the set handle and frees the resources associated with an existing set.
+}
+
+\begin{apidefinition}
+\begin{Csynopsis}
+int @\FuncDecl{shmem\_free\_ set}@(shmem_set_t set)}
+\end{Csynopsis}
+
+\begin{apiarguments}
+     \apiargument{IN}{set}{A valid set created by one of the set creation operations other than the pre-defined sets.}
+\end{apiarguments}
+
+\apidescription{
+The shmem\_free\_set releases all resources associated with the set. Trying to access the set handle after calling shmem\_free\_set on the handle leads to undefined behavior. All other sets or groups created from this set are not affected by this operation. }
+
+\apireturnvalues{
+shmem\_free\_set returns 0 upon success; otherwise, it returns a non-zero value.
+}
+
+\apinotes{ None.}
+
+\end{apidefinition}

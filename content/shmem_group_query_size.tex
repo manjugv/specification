@@ -1,0 +1,26 @@
+\apisummary{
+    Returns the number of \ac{PE} in the group
+}
+
+\begin{apidefinition}
+
+\begin{Csynopsis}
+int @\FuncDecl{shmem\_group\_query\_size}@(shmem_group_t group, int *size)
+\end{Csynopsis}
+
+\begin{apiarguments}
+     \apiargument{IN}{group}{A valid group. A valid group is either a pre-defined group or created by one the group creation operation.}
+     \apiargument{OUT}{group}{Number of \ac{PE} in the group}
+\end{apiarguments}
+
+\apidescription{
+The shmem\_group\_query\_size routine returns the number of \ac{PE} in the group. This will always be a value between 1 and the total number of  \ac{PE}. For the group SHMEM\_GROUP\_EMPTY, the routine will return 0. 
+}
+
+\apireturnvalues{
+shmem\_group\_query\_size  returns 0 upon success; otherwise, it returns a non-zero value.
+}
+
+\apinotes{None.}
+
+\end{apidefinition}

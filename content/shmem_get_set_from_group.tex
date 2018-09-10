@@ -1,0 +1,27 @@
+\apisummary{
+   Returns a set corresponding to the group.
+}
+
+\begin{apidefinition}
+
+\begin{Csynopsis}
+int @\FuncDecl{shmem\_get\_set\_from\_group}@(shmem_group_t *group, shmem_set_t **set)
+\end{Csynopsis}
+
+\begin{apiarguments}
+     \apiargument{IN}{group}{A valid group. A valid group is either a pre-defined group or created by one the group creation operation.}
+      \apiargument{OUT}{set}{A set corresponding to the group.}
+\end{apiarguments}
+
+\apidescription{
+The shmem\_get\_set\_from\_group routine returns the set corresponding to the group. All \ac{PE} that are a part of the group are part of the output set. 
+}
+
+\apireturnvalues{
+shmem\_get\_set\_from\_group  returns 0 upon success; otherwise, it returns a non-zero value..
+}
+
+\apinotes{None.}
+
+\end{apidefinition}
+
