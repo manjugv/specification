@@ -1,0 +1,72 @@
+\chapter{Ordering Rules Interpreted}
+
+\begin{tabular}{|l|l|l|l|l|l|l|}
+\hline
+\textbf{} &\textbf{Put} & \textbf{Get} & \textbf{Put NBI} & \textbf{Get NBI} &
+\textbf{Fetch Atomics} & \textbf{Non fetch Atomics}
+\tabularnewline\hline
+%%
+\EnvVarDecl{Put}
+    & F/Q
+    & Yes
+    & Q
+    & Q
+    & Yes
+    & F/Q
+    \tabularnewline\hline
+%%
+\EnvVarDecl{Get}
+    & F/Q
+    & Yes
+    & Q
+    & Q
+    & Yes
+    & Q
+    \tabularnewline\hline
+%%
+\EnvVarDecl{Put NBI}
+    & F/Q
+    & Yes
+    & Q
+    & Q
+    & Yes
+    & F/Q
+    \tabularnewline\hline
+
+%%
+\EnvVarDecl{Get NBI}
+    & F/Q
+    & Q 
+    & Q
+    & Q
+    & Yes
+    & Q
+    \tabularnewline\hline
+
+%%
+\EnvVarDecl{Fetch Atomics}
+    & Yes
+    & Yes
+    & Q
+    & Q
+    & Yes
+    & Yes
+    \tabularnewline\hline
+
+%%
+\EnvVarDecl{Non fetch Atomics}
+    & F/Q
+    & Yes
+    & Q
+    & Q
+    & Yes
+    & Q
+    \tabularnewline\hline
+\end{tabular}
+
+The column represents the first operation in the program order and row
+represents the second operation in the program order. "Yes" means that the first
+and second operation always exectues and completes in order. "F" means that
+the second operation executes in order, if there is a shmem\_fence in between the
+operations. "Q" means that the second operation completes and visible in
+order, if there is a shmem\_quiet in between the operations. 
