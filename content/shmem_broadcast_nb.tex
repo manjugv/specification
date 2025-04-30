@@ -100,4 +100,14 @@ operation.}
     \LibConstRef{SHMEM\_TEAM\_INVALID}.
 }
 
+\begin{apiexamples}
+
+\apicexample
+    {In the following \Cstd[11] example, the call to multiple \FUNC{shmem\_broadcast\_nb} copies the \source{}
+    params on \ac{PE} $0\dots npes-1$ to the \dest{} params on \acp{PE} $0\dots npes-1$. This effectively performs a \FUNC{shmem\_collect} operation using nonblocking broadcasts.}
+    {./example_code/shmem_broadcast_nb_example.c}
+    {}
+
+\end{apiexamples}
+
 \end{apidefinition}

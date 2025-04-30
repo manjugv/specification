@@ -40,9 +40,9 @@ complete communication operations with that computationally-bound \ac{PE}
 without that \ac{PE} issuing any explicit \openshmem calls. One-sided \openshmem
 communication calls involving that \ac{PE} should progress regardless of when
 that \ac{PE} next engages in an \openshmem call. Similarly,
-for non-blocking collectives, consider the \acp{PE} that are part of a team
-issuing a non-blocking collective and overlapping collective completion with
-computation. Once a non-blocking collective operation is initiated by
+for nonblocking collectives, consider the \acp{PE} that are part of a team
+issuing a nonblocking collective and overlapping collective completion with
+computation. Once a nonblocking collective operation is initiated by
 all of the \acp{PE} in the team of the collective, any \ac{PE} in the team must
 eventually observe completion through a call to \FUNC{shmem\_req\_test} or a
 call to \FUNC{shmem\_req\_wait}.
