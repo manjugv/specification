@@ -36,7 +36,7 @@ int main(void) {
   /* wait for all PEs to update sources/dests */ 
   shmem_team_sync(SHMEM_TEAM_WORLD);
 
-  /* overlap alltoall operations on all PEs */
+  /* concurrent alltoall operations on all PEs */
   for (int i = 0; i < nr_a2a; i++) {
     status = shmem_int64_alltoall_nb(SHMEM_TEAM_WORLD, dest[i], source[i], count, &requests[i]);
     if (0 != status) {
@@ -45,7 +45,7 @@ int main(void) {
     }
   }
 
-  for (int i = 0; i < npes; i++) {
+  for (int i = 0; i < nr_a2a; i++) {
     status = shmem_req_wait(&requests[i]);
     if (0 != status) {
       fprintf(stderr, "shmem req wait failed on request %d\n", i);
