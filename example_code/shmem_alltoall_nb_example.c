@@ -17,7 +17,7 @@ int main(void) {
 
   source   = (int64_t **)shmem_malloc(nr_a2a * sizeof(int64_t *));
   dest     = (int64_t **)shmem_malloc(nr_a2a * sizeof(int64_t *));
-  requests = (shmem_req_h *) malloc(nr_a2a * sizeof(shmem_req_h));
+  requests = (shmem_req_h *)malloc(nr_a2a * sizeof(shmem_req_h));
   for (int i = 0; i < npes; i++) {
     requests[i] = SHMEM_REQ_INVALID;
   }

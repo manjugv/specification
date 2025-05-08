@@ -44,6 +44,7 @@ int main(void) {
       }
       printf("%8d", dest[i]);
     }
+    printf("\n");
   }
 out:
   shmem_free(dest);
