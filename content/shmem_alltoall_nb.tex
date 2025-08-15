@@ -101,8 +101,8 @@ operation.}
     {\bf Entry criteria}: Before any \ac{PE} calls a \FUNC{shmem\_alltoall\_nb} routine,
     the following condition must be ensured:
     \begin{itemize}
-    \item The \VAR{source} data object on the local \ac{PE} in the team is
-      ready to be read by any \ac{PE} in the team.
+    \item The \VAR{dest} data object on all \acp{PE} in the team is
+      ready to accept the \FUNC{shmem\_alltoall\_nb} data.
     \end{itemize}
     Otherwise, the behavior is undefined.
 
@@ -116,12 +116,6 @@ operation.}
 
 \apireturnvalues{
     Zero on successful local completion. Nonzero otherwise.
-}
-
-\apinotes{
-    It is the implementation's responsibility to ensure the \dest{} array on
-    all \acp{PE} in the team are ready to accept the \FUNC{shmem\_alltoall\_nb}
-    data before updates may occur.
 }
 
 \begin{apiexamples}

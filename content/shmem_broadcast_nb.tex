@@ -63,9 +63,11 @@ operation.}
     call to \FUNC{shmem\_req\_wait}. When the operation is complete, the request handle
     is deallocated and cannot be reused.
 
-    Similar to blocking broadcast, before any \ac{PE} calls a broadcast routine, the following
+    Like blocking broadcast, before any \ac{PE} calls a broadcast routine, the following
     conditions must be ensured:
     \begin{itemize}
+    \item the \dest{} array on all \acp{PE} participating in the broadcast
+      is ready to accept the broadcast data.
     \item All \acp{PE} in the \VAR{team} argument must participate in
       the operation.
     \item If the \VAR{team} compares equal to \LibConstRef{SHMEM\_TEAM\_INVALID} or is
@@ -92,10 +94,6 @@ operation.}
 }
 
 \apinotes{
-    It is the implementation's responsibility to ensure the \dest{} array on
-    all \acp{PE} in the team are ready to accept the broadcast data before
-    updates may occur.
-
     Team handle error checking and integer return codes are currently undefined.
     Implementations may define these behaviors as needed, but programs should
     ensure portability by doing their own checks for invalid team handles and for
